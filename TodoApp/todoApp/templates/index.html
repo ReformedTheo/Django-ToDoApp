@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<table class="table table-hover table-danger">
+    <caption style="color: red; text-align: center; caption-side: top; font-weight: bolder; font-size: 27px;">TO DO</caption>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Título</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eventoTodo in eventosTodo %}
+        <tr>
+            <th scope="row"><a href="{{ eventoTodo.id}}">{{ eventoTodo.id }}</a></th>
+            <td>{{eventoTodo.title }}</td>
+            <td>{{ eventoTodo.status }}</td>
+            <td>{{ eventoTodo.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<table class="table table-hover table-warning">
+    <caption style="color: yellow; text-align: center; caption-side: top; font-weight: bolder; font-size: 27px;">IN PROGRESS</caption>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Título</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eventoInProgress in eventosInProgress %}
+        <tr>
+            <th scope="row"><a href="/index/{{ eventoInProgress.id }}/">{{ eventoInProgress.id }}</a></th>
+            <td>{{ eventoInProgress.title }}</td>
+            <td>{{ eventoInProgress.status }}</td>
+            <td>{{ eventoInProgress.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<table class="table table-hover table-success">
+    <caption style="color: green; text-align: center; caption-side: top; font-weight: bolder; font-size: 27px;">DONE</caption>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Título</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eventoDone in eventosDone %}
+        <tr>
+            <th scope="row"><a href="/index/{{ eventoDone.id }}/">{{ eventoDone.id }}</a></th>
+            <td>{{eventoDone.title }}</td>
+            <td>{{ eventoDone.status }}</td>
+            <td>{{ eventoDone.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
